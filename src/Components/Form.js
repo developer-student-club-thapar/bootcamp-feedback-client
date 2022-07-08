@@ -9,7 +9,7 @@ const Form = ({ setFormOpen }) => {
           setFormOpen(false);
         }}
       ></div>
-      <div className="flex flex-col justify-center items-start p-4 rounded-xl z-10 bg-white w-1/2 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+      <form className="flex flex-col justify-center items-start p-4 px-6 rounded-xl z-10 bg-white w-1/2 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         <label className="font-light text-sm mb-2">Name: *</label>
         <input
           type={"text"}
@@ -45,7 +45,7 @@ const Form = ({ setFormOpen }) => {
         <button className="bg-[#9296FF] hover:bg-[#6268FF] p-3 px-24 mx-auto  text-white items-center rounded-full text-xl font-semibold">
           Submit
         </button>
-      </div>
+      </form>
     </>
   );
 };
