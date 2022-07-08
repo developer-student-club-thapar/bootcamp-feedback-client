@@ -1,3 +1,4 @@
+import AddReviewButton from "./Components/AddReviewButton";
 import FeedbackList from "./Components/FeedbackList";
 import Header from "./Components/Header";
 
@@ -7,6 +8,7 @@ function App() {
       <div id="App" className="bg-[#F5F5F5]">
         <Header />
         <FeedbackList />
+        <AddReviewButton />
       </div>
     </>
   );
