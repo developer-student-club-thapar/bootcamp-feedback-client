@@ -53,11 +53,16 @@ const Feedbacks = [
 
 const FeedbackList = ({ feedbacks }) => {
   const colors = ["purple", "yellow", "green", "pink"];
+  const span = ["", "col-span-2"];
   let color;
   return (
     <div className="p-12 grid grid-cols-4 gap-4">
       {Feedbacks.map((feedback, index) => {
-        color = colors[Math.floor(Math.random() * colors.length)];
+        color =
+          colors[Math.floor(Math.random() * colors.length)] +
+          " " +
+          span[Math.floor(Math.random() * span.length)];
+
         feedback.color = color;
         return <FeedbackItem feedback={feedback} />;
       })}
