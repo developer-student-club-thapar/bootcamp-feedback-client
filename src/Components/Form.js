@@ -1,5 +1,3 @@
-import { FaGithub } from "react-icons/fa";
-
 const Form = ({ setFormOpen }) => {
   return (
     <>
