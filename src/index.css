@@ -1,12 +1,28 @@
 @tailwind base;
+
+@import url("http://fonts.cdnfonts.com/css/product-sans");
+.purple {
+  background-color: #d9d7f1;
+}
+
+.yellow {
+  background-color: #fffdde;
+}
+
+.green {
+  background-color: #e7fbbe;
+}
+
+.pink {
+  background-color: #ffcbcb;
+}
+
 @tailwind components;
 @tailwind utilities;
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Product Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

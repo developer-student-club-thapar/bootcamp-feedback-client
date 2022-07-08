@@ -1,7 +1,13 @@
+import FeedbackList from "./Components/FeedbackList";
+import Header from "./Components/Header";
+
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold">Hello world!</h1>
+      <div id="App" className="bg-[#F5F5F5] h-screen">
+        <Header />
+        <FeedbackList />
+      </div>
     </>
   );
 }
