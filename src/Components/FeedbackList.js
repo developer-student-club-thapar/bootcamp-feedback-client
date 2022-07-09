@@ -1,57 +1,16 @@
+import { useEffect, useState } from "react";
 import FeedbackItem from "./FeedbackItem";
+import axios from "axios";
 
-const Feedbacks = [
-  {
-    name: "Yashvardhan Arora",
-    message:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis architecto aliquid ratione fuga quo, accusamus sapiente fugit. Blanditiis ut quisquam maiores enim aperiam tempora quae nostrum! Culpa hic aut voluptatum ea eveniet incidunt blanditiis quibusdam veniam ducimus doloribus, praesentium rerum, beatae magni perspiciatis? Hic rem voluptatibus eveniet harum ut animi.",
-    github: "https://github.com/yash22arora",
-    twitter: "https://twitter.com/yashvardhanarora",
-    instagram: "https://www.instagram.com/yashvardhanarora/",
-  },
-  {
-    name: "Yashvardhan Arora",
-    message:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis architecto aliquid ratione fuga quo, accusamus sapiente fugit. Blanditiis ut quisquam maiores enim aperiam tempora quae nostrum! Culpa hic aut voluptatum ea eveniet incidunt blanditiis quibusdam veniam ducimus doloribus, praesentium rerum, beatae magni perspiciatis? Hic rem voluptatibus eveniet harum ut animi.",
-    github: "https://github.com/yash22arora",
-    twitter: "https://twitter.com/yashvardhanarora",
-    instagram: "https://www.instagram.com/yashvardhanarora/",
-  },
-  {
-    name: "Yashvardhan Arora",
-    message:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis architecto aliquid ratione fuga quo, accusamus sapiente fugit. Blanditiis ut quisquam maiores enim aperiam tempora quae nostrum! Culpa hic aut voluptatum ea eveniet incidunt blanditiis quibusdam veniam ducimus doloribus, praesentium rerum, beatae magni perspiciatis? Hic rem voluptatibus eveniet harum ut animi.",
-    github: "https://github.com/yash22arora",
-    twitter: "https://twitter.com/yashvardhanarora",
-    instagram: "https://www.instagram.com/yashvardhanarora/",
-  },
-  {
-    name: "Yashvardhan Arora",
-    message:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis architecto aliquid ratione fuga quo, accusamus sapiente fugit. Blanditiis ut quisquam maiores enim aperiam tempora quae nostrum! Culpa hic aut voluptatum ea eveniet incidunt blanditiis quibusdam veniam ducimus doloribus, praesentium rerum, beatae magni perspiciatis? Hic rem voluptatibus eveniet harum ut animi.",
-    github: "https://github.com/yash22arora",
-    twitter: "https://twitter.com/yashvardhanarora",
-    instagram: "https://www.instagram.com/yashvardhanarora/",
-  },
-  {
-    name: "Yashvardhan Arora",
-    message:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis architecto aliquid ratione fuga quo, accusamus sapiente fugit. Blanditiis ut quisquam maiores enim aperiam tempora quae nostrum! Culpa hic aut voluptatum ea eveniet incidunt blanditiis quibusdam veniam ducimus doloribus, praesentium rerum, beatae magni perspiciatis? Hic rem voluptatibus eveniet harum ut animi.",
-    github: "https://github.com/yash22arora",
-    twitter: "https://twitter.com/yashvardhanarora",
-    instagram: "https://www.instagram.com/yashvardhanarora/",
-  },
-  {
-    name: "Yashvardhan Arora",
-    message:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis architecto aliquid ratione fuga quo, accusamus sapiente fugit. Blanditiis ut quisquam maiores enim aperiam tempora quae nostrum! Culpa hic aut voluptatum ea eveniet incidunt blanditiis quibusdam veniam ducimus doloribus, praesentium rerum, beatae magni perspiciatis? Hic rem voluptatibus eveniet harum ut animi.",
-    github: "https://github.com/yash22arora",
-    twitter: "https://twitter.com/yashvardhanarora",
-    instagram: "https://www.instagram.com/yashvardhanarora/",
-  },
-];
-
-const FeedbackList = ({ feedbacks }) => {
+const FeedbackList = () => {
+  const [Feedbacks, setFeedbacks] = useState([]);
+  useEffect(() => {
+    const getData = async () => {
+      let res = await axios.get(`https://servreviewapi.dsctiet.tech/`);
+      if (res !== []) setFeedbacks(res.data);
+    };
+    getData();
+  }, []);
   const colors = ["purple", "yellow", "green", "pink"];
   const spanList = ["", "md:col-span-2"];
   let color,
