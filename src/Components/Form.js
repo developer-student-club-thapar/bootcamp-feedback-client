@@ -41,6 +41,7 @@ const Form = ({ setFormOpen }) => {
       .then((res) => {
         if (res.status === 200) {
           setmessage(1);
+          document.location.reload();
         } else {
           setmessage(0);
         }
@@ -64,12 +65,12 @@ const Form = ({ setFormOpen }) => {
   return (
     <>
       <div
-        className="overlay w-screen h-full absolute bg-black opacity-25"
+        className="overlay w-screen h-full fixed top-0 left-0 bg-black opacity-25"
         onClick={() => {
           setFormOpen(false);
         }}
       ></div>
-      <form className="flex flex-col justify-center items-start p-4 px-6 rounded-xl z-10 bg-white w-1/2 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+      <form className="flex flex-col justify-center items-start p-4 px-6 rounded-xl z-10 bg-white w-1/2 fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         <label className="font-light text-sm mb-2">Name: *</label>
         <input
           type={"text"}
@@ -106,7 +107,7 @@ const Form = ({ setFormOpen }) => {
         <label className="font-light text-sm mb-2">Instagram URL:</label>
         <input
           type={"url"}
-          name="insta"
+          name="instagram"
           onChange={(e) => handleChange(e)}
           className="px-4 py-2 w-full mb-6 bg-[#F6F6F6] rounded-md border border-gray-400"
         />
