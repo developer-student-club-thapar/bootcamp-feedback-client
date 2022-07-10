@@ -7,7 +7,7 @@ const FeedbackList = () => {
   useEffect(() => {
     const getData = async () => {
       let res = await axios.get(`https://servreviewapi.dsctiet.tech/`);
-      if (res !== []) setFeedbacks(res.data);
+      if (res !== []) setFeedbacks(res.data.reverse());
     };
     getData();
   }, []);

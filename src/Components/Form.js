@@ -41,7 +41,9 @@ const Form = ({ setFormOpen }) => {
       .then((res) => {
         if (res.status === 200) {
           setmessage(1);
-          document.location.reload();
+          setTimeout(() => {
+            document.location.reload();
+          }, 2000);
         } else {
           setmessage(0);
         }
