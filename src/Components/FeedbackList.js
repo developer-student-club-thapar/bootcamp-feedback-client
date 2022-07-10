@@ -19,7 +19,7 @@ const FeedbackList = () => {
   return (
     <div className="p-12 grid md:grid-cols-4 grid-cols-1 gap-4">
       {Feedbacks.map((feedback, index) => {
-        countPerRow % 4 > 2
+        feedback.message.length < 50 || countPerRow % 4 > 2
           ? (span = "")
           : (span = spanList[Math.floor(Math.random() * spanList.length)]);
         color = colors[Math.floor(Math.random() * colors.length)] + " " + span;
