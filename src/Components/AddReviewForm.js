@@ -1,5 +1,6 @@
 import { useReducer, useState } from "react";
 import axios from "axios";
+import Modal from "./Modal";
 
 const Message = ({ message }) => {
   let response = {};
@@ -23,7 +24,7 @@ const Message = ({ message }) => {
   return <p className={response.class}>{response.msg}</p>;
 };
 
-const Form = ({ setFormOpen }) => {
+const AddReviewForm = ({ setAddFormOpen }) => {
   const [message, setmessage] = useState(-1);
 
   const formReducer = (state, event) => {
@@ -53,7 +54,7 @@ const Form = ({ setFormOpen }) => {
         setmessage(0);
       });
     setTimeout(() => {
-      setFormOpen(false);
+      setAddFormOpen(false);
     }, 1000);
   };
 
@@ -65,14 +66,8 @@ const Form = ({ setFormOpen }) => {
   };
 
   return (
-    <>
-      <div
-        className="overlay w-screen h-full fixed top-0 left-0 bg-black opacity-25"
-        onClick={() => {
-          setFormOpen(false);
-        }}
-      ></div>
-      <form className="flex flex-col justify-center items-start p-4 px-6 rounded-xl z-10 bg-white w-1/2 fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+    <Modal setModalOpen={setAddFormOpen}>
+      <form className="flex flex-col justify-center items-start p-4 px-6 ">
         <label className="font-light text-sm mb-2">Name: *</label>
         <input
           type={"text"}
@@ -114,10 +109,21 @@ const Form = ({ setFormOpen }) => {
           className="px-4 py-2 w-full mb-6 bg-[#F6F6F6] rounded-md border border-gray-400"
         />
 
+        <label className="font-light text-sm mb-2">
+          Passphrase: *<span>(Would be required for deleting feedback)</span>
+        </label>
+        <input
+          type={"text"}
+          name="passphrase"
+          onChange={(e) => handleChange(e)}
+          className="px-4 py-2 w-full mb-6 bg-[#F6F6F6] rounded-md border border-gray-400"
+          required
+        />
+
         <label className="font-light text-sm mb-2">Feedback: *</label>
         <textarea
           className="px-4 py-2 w-full mb-6 bg-[#F6F6F6] rounded-md border border-gray-400 resize-y"
-          rows={2}
+          rows={5}
           name="message"
           onChange={(e) => handleChange(e)}
           required
@@ -131,8 +137,8 @@ const Form = ({ setFormOpen }) => {
         </button>
         <Message message={message} />
       </form>
-    </>
+    </Modal>
   );
 };
 
-export default Form;
+export default AddReviewForm;

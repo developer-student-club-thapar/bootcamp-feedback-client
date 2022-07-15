@@ -26,7 +26,7 @@ const FeedbackList = () => {
 
         countPerRow = span === "" ? countPerRow + 1 : countPerRow + 2;
         feedback.color = color;
-        return <FeedbackItem feedback={feedback} />;
+        return <FeedbackItem feedback={feedback} key={feedback._id} />;
       })}
     </div>
   );
