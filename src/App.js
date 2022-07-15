@@ -7,23 +7,38 @@ import FeedbackList from "./Components/FeedbackList";
 import Header from "./Components/Header";
 
 function App() {
-  const [formOpen, setFormOpen] = useState(false);
+  const [addFormOpen, setAddFormOpen] = useState(false);
   const [deleteFormOpen, setDeleteFormOpen] = useState(false);
+  const [deleteId, setDeleteId] = useState("");
+
   useEffect(() => {
-    if (formOpen) {
+    if (addFormOpen || deleteFormOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "visible";
     }
-  }, [formOpen]);
+
+    if (deleteId.length) {
+      setDeleteFormOpen(true);
+    }
+  }, [addFormOpen, deleteFormOpen, deleteId]);
+
   return (
     <>
-      <div id="App" className="bg-[#F5F5F5]">
-        {!formOpen && <AddReviewButton setFormOpen={setFormOpen} />}
-        {formOpen && <AddReviewForm setAddFormOpen={setFormOpen} />}
-        {deleteFormOpen && <DeleteForm setDeleteFormOpen={setDeleteFormOpen} />}
+      <div id="App" className="bg-[#F5F5F5] min-h-screen">
+        {!(addFormOpen || deleteFormOpen) && (
+          <AddReviewButton setFormOpen={setAddFormOpen} />
+        )}
+        {addFormOpen && <AddReviewForm setAddFormOpen={setAddFormOpen} />}
+        {deleteFormOpen && (
+          <DeleteForm
+            setDeleteFormOpen={setDeleteFormOpen}
+            id={deleteId}
+            setDeleteId={setDeleteId}
+          />
+        )}
         <Header />
-        <FeedbackList />
+        <FeedbackList setDeleteId={setDeleteId} />
       </div>
     </>
   );

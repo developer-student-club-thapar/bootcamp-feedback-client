@@ -7,7 +7,7 @@ const Message = ({ message }) => {
   if (message === 1) {
     response = {
       class: "text-green-600",
-      msg: "Feedback Successfully submitted, Please refresh to check out!",
+      msg: "Feedback successfully submitted!",
     };
   } else if (message === -1) {
     response = {
@@ -21,7 +21,11 @@ const Message = ({ message }) => {
     };
   }
 
-  return <p className={response.class}>{response.msg}</p>;
+  return (
+    <p className={response.class + " mx-auto p-2 w-full text-center"}>
+      {response.msg}
+    </p>
+  );
 };
 
 const AddReviewForm = ({ setAddFormOpen }) => {

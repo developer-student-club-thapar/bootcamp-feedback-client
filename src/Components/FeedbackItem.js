@@ -1,7 +1,7 @@
-import { FaGithub, FaTwitterSquare, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaTwitterSquare, FaLinkedin, FaTrash } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 
-const FeedbackItem = ({ feedback }) => {
+const FeedbackItem = ({ feedback, setDeleteId }) => {
   return (
     <div
       className={`p-4 flex flex-col rounded-xl justify-between ${feedback.color}`}
@@ -53,6 +53,12 @@ const FeedbackItem = ({ feedback }) => {
                 </a>
               )
             : ""}
+          <FaTrash
+            className="ml-auto mr-2 opacity-50 hover:opacity-80 cursor-pointer"
+            onClick={() => {
+              setDeleteId(feedback._id);
+            }}
+          />
         </div>
       </div>
     </div>

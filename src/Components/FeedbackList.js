@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import FeedbackItem from "./FeedbackItem";
 import axios from "axios";
 
-const FeedbackList = () => {
+const FeedbackList = ({ setDeleteId }) => {
   const [Feedbacks, setFeedbacks] = useState([]);
   useEffect(() => {
     const getData = async () => {
@@ -26,7 +26,13 @@ const FeedbackList = () => {
 
         countPerRow = span === "" ? countPerRow + 1 : countPerRow + 2;
         feedback.color = color;
-        return <FeedbackItem feedback={feedback} key={feedback._id} />;
+        return (
+          <FeedbackItem
+            feedback={feedback}
+            key={feedback._id}
+            setDeleteId={setDeleteId}
+          />
+        );
       })}
     </div>
   );
