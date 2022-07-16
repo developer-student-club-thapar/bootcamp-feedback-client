@@ -5,10 +5,12 @@ import AddReviewForm from "./Components/AddReviewForm";
 import DeleteForm from "./Components/DeleteForm";
 import FeedbackList from "./Components/FeedbackList";
 import Header from "./Components/Header";
+import UpdateForm from "./Components/UpdateForm";
 
 function App() {
   const [addFormOpen, setAddFormOpen] = useState(false);
   const [deleteFormOpen, setDeleteFormOpen] = useState(false);
+  const [updateFormOpen, setUpdateFormOpen] = useState(false);
   const [deleteId, setDeleteId] = useState("");
 
   useEffect(() => {
@@ -21,7 +23,11 @@ function App() {
     if (deleteId.length) {
       setDeleteFormOpen(true);
     }
-  }, [addFormOpen, deleteFormOpen, deleteId]);
+
+    if (updateFormOpen) {
+      setUpdateFormOpen(true);
+  }}, [addFormOpen, deleteFormOpen, deleteId, updateFormOpen]);
+   
 
   return (
     <>
@@ -40,6 +46,10 @@ function App() {
         <Header />
         <FeedbackList setDeleteId={setDeleteId} />
       </div>
+      <UpdateForm setUpdateFormOpen={setUpdateFormOpen}
+   />
+
+
     </>
   );
 }
