@@ -28,7 +28,7 @@ const Message = ({ message }) => {
   );
 };
 
-const AddReviewForm = ({ setAddFormOpen }) => {
+const AddReviewForm = ({ setAddFormOpen, currentEvent }) => {
   const [message, setmessage] = useState(-1);
 
   const formReducer = (state, event) => {
@@ -41,8 +41,10 @@ const AddReviewForm = ({ setAddFormOpen }) => {
 
   const onClick = (e) => {
     e.preventDefault();
+    formdata.event = currentEvent;
+    console.log(formdata);
     axios
-      .post("https://servreviewapi.dsctiet.tech/", formdata)
+      .post("https://servreviewapi.dsctiet.tech/notes", formdata)
       .then((res) => {
         if (res.status === 200) {
           setmessage(1);

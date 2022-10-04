@@ -2,15 +2,16 @@ import { useEffect, useState } from "react";
 import FeedbackItem from "./FeedbackItem";
 import axios from "axios";
 
-const FeedbackList = ({ setDeleteId }) => {
+const FeedbackList = ({ setDeleteId, event }) => {
   const [Feedbacks, setFeedbacks] = useState([]);
   useEffect(() => {
     const getData = async () => {
-      let res = await axios.get(`https://servreviewapi.dsctiet.tech/`);
+      console.log(`https://servreviewapi.dsctiet.tech/${event}`);
+      let res = await axios.get(`https://servreviewapi.dsctiet.tech/${event}`);
       if (res !== []) setFeedbacks(res.data.reverse());
     };
     getData();
-  }, []);
+  }, [event]);
   const colors = ["purple", "yellow", "green", "pink"];
   const spanList = ["", "md:col-span-2"];
   let color,

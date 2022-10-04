@@ -24,13 +24,17 @@ function App() {
     }
   }, [addFormOpen, deleteFormOpen, deleteId]);
 
+  const [event, setEvent] = useState("ideas");
+
   return (
     <>
       <div id="App" className="bg-[#F5F5F5] min-h-screen">
         {!(addFormOpen || deleteFormOpen) && (
           <AddReviewButton setFormOpen={setAddFormOpen} />
         )}
-        {addFormOpen && <AddReviewForm setAddFormOpen={setAddFormOpen} />}
+        {addFormOpen && (
+          <AddReviewForm setAddFormOpen={setAddFormOpen} currentEvent={event} />
+        )}
         {deleteFormOpen && (
           <DeleteForm
             setDeleteFormOpen={setDeleteFormOpen}
@@ -39,8 +43,8 @@ function App() {
           />
         )}
         <Header />
-        <Events />
-        <FeedbackList setDeleteId={setDeleteId} />
+        <Events setEvent={setEvent} />
+        <FeedbackList setDeleteId={setDeleteId} event={event} />
       </div>
     </>
   );
