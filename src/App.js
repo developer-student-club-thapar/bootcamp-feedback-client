@@ -43,7 +43,7 @@ function App() {
           />
         )}
         <Header />
-        <Events setEvent={setEvent} />
+        <Events setEvent={setEvent} event={event} />
         <FeedbackList setDeleteId={setDeleteId} event={event} />
       </div>
     </>
