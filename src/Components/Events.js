@@ -9,7 +9,7 @@ function Events({ setEvent }) {
             onClick={() => {
               setEvent("ideas");
             }}
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mx-2"
+            class="bg-[#9296FF] hover:bg-[#6268FF] text-white font-bold py-2 px-4 rounded-full mx-2"
           >
             Ideas
           </button>
@@ -17,7 +17,7 @@ function Events({ setEvent }) {
             onClick={() => {
               setEvent("bootcamp");
             }}
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mx-2"
+            class="bg-[#9296FF] hover:bg-[#6268FF] text-white font-bold py-2 px-4 rounded-full mx-2"
           >
             Bootcamp
           </button>
@@ -25,7 +25,7 @@ function Events({ setEvent }) {
             onClick={() => {
               setEvent("notes");
             }}
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mx-2"
+            class="bg-[#9296FF] hover:bg-[#6268FF] text-white font-bold py-2 px-4 rounded-full mx-2"
           >
             All
           </button>
