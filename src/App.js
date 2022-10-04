@@ -5,6 +5,7 @@ import AddReviewForm from "./Components/AddReviewForm";
 import DeleteForm from "./Components/DeleteForm";
 import FeedbackList from "./Components/FeedbackList";
 import Header from "./Components/Header";
+import Events from "./Components/Events";
 
 function App() {
   const [addFormOpen, setAddFormOpen] = useState(false);
@@ -38,6 +39,7 @@ function App() {
           />
         )}
         <Header />
+        <Events />
         <FeedbackList setDeleteId={setDeleteId} />
       </div>
     </>
