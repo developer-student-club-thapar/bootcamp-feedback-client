@@ -32,17 +32,23 @@ function App() {
   const [allData, setAllData] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("https://api.dsctiet.tech/api/events/")
-      .then((res) => {
-        console.log(res.data);
-        setAllData(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const data = async () => {
+      const res = await axios.get("https://api.dsctiet.tech/api/events/");
+      console.log(res.data);
+      setAllData(res.data);
+    };
+    data();
   }, []);
 
+  useEffect(() => {
+    const arr = allData.slice(allEvents.length, allData.length) || [];
+    console.log(arr);
+    arr.forEach((element) => {
+      setAllEvents((allEvents) => [...allEvents, element.title]);
+    });
+  }, [allData]);
+
+  //console.log("mahima");
   return (
     <>
       <div id="App" className="bg-[#F5F5F5] min-h-screen">
@@ -60,7 +66,7 @@ function App() {
           />
         )}
         <Header />
-        <Events setEvent={setEvent} event={event} />
+        <Events setEvent={setEvent} event={event} allEvents={allEvents} />
         <FeedbackList setDeleteId={setDeleteId} event={event} />
       </div>
     </>
