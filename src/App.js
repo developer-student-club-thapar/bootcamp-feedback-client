@@ -6,6 +6,7 @@ import DeleteForm from "./Components/DeleteForm";
 import FeedbackList from "./Components/FeedbackList";
 import Header from "./Components/Header";
 import Events from "./Components/Events";
+import axios from "axios";
 
 function App() {
   const [addFormOpen, setAddFormOpen] = useState(false);
@@ -25,6 +26,22 @@ function App() {
   }, [addFormOpen, deleteFormOpen, deleteId]);
 
   const [event, setEvent] = useState("ideas");
+
+  //get all events from an api
+  const [allEvents, setAllEvents] = useState([]);
+  const [allData, setAllData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://api.dsctiet.tech/api/events/")
+      .then((res) => {
+        console.log(res.data);
+        setAllData(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <>

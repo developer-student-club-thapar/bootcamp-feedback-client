@@ -17,22 +17,6 @@ function Events({ setEvent, event }) {
           >
             Ideas
           </button>
-          <button
-            onClick={() => {
-              setEvent("bootcamp");
-            }}
-            className={event === "bootcamp" ? style2 : style}
-          >
-            Bootcamp
-          </button>
-          <button
-            onClick={() => {
-              setEvent("notes");
-            }}
-            className={event === "notes" ? style2 : style}
-          >
-            All
-          </button>
         </div>
       </div>
     </>
