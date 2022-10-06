@@ -1,6 +1,6 @@
 import React from "react";
 
-function Events({ setEvent, event }) {
+function Events({ setEvent, event, allEvents }) {
   const style =
     "bg-[#9296FF] hover:bg-[#6268FF] text-white font-bold py-2 px-4 rounded-full mx-2";
   const style2 =
@@ -17,6 +17,19 @@ function Events({ setEvent, event }) {
           >
             Ideas
           </button>
+
+          {allEvents.map((element) => {
+            return (
+              <button
+                onClick={() => {
+                  setEvent(element);
+                }}
+                className={event === element ? style2 : style}
+              >
+                {element}
+              </button>
+            );
+          })}
         </div>
       </div>
     </>
