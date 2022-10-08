@@ -48,12 +48,11 @@ function App() {
     });
   }, [allData]);
 
-  //console.log("mahima");
   return (
     <>
       <div id="App" className="bg-[#F5F5F5] min-h-screen">
         {!(addFormOpen || deleteFormOpen) && (
-          <AddReviewButton setFormOpen={setAddFormOpen} />
+          <AddReviewButton setFormOpen={setAddFormOpen} event={event} />
         )}
         {addFormOpen && (
           <AddReviewForm setAddFormOpen={setAddFormOpen} currentEvent={event} />
