@@ -70,7 +70,9 @@ const AddReviewForm = ({ setAddFormOpen, currentEvent }) => {
       value: e.target.value,
     });
   };
-
+  /*${
+            currentEvent === "ideas" ? `hidden` : ``
+          }`*/
   return (
     <Modal setModalOpen={setAddFormOpen}>
       <form className="flex flex-col justify-center items-start p-4 px-6 ">
@@ -82,38 +84,39 @@ const AddReviewForm = ({ setAddFormOpen, currentEvent }) => {
           className="px-4 py-2 w-full mb-6 bg-[#F6F6F6] rounded-md border border-gray-400"
           required
         />
+        <div className={`${currentEvent === "ideas" ? "hidden" : ""}`}>
+          <label className="font-light text-sm mb-2">Github URL:</label>
+          <input
+            type={"url"}
+            name="github"
+            onChange={(e) => handleChange(e)}
+            className="px-4 py-2 w-full mb-6 bg-[#F6F6F6] rounded-md border border-gray-400"
+          />
 
-        <label className="font-light text-sm mb-2">Github URL:</label>
-        <input
-          type={"url"}
-          name="github"
-          onChange={(e) => handleChange(e)}
-          className="px-4 py-2 w-full mb-6 bg-[#F6F6F6] rounded-md border border-gray-400"
-        />
+          <label className="font-light text-sm mb-2">LinkedIn URL:</label>
+          <input
+            type={"url"}
+            name="linkedin"
+            onChange={(e) => handleChange(e)}
+            className="px-4 py-2 w-full mb-6 bg-[#F6F6F6] rounded-md border border-gray-400"
+          />
 
-        <label className="font-light text-sm mb-2">LinkedIn URL:</label>
-        <input
-          type={"url"}
-          name="linkedin"
-          onChange={(e) => handleChange(e)}
-          className="px-4 py-2 w-full mb-6 bg-[#F6F6F6] rounded-md border border-gray-400"
-        />
+          <label className="font-light text-sm mb-2">Twitter URL:</label>
+          <input
+            type={"url"}
+            name="twitter"
+            onChange={(e) => handleChange(e)}
+            className="px-4 py-2 w-full mb-6 bg-[#F6F6F6] rounded-md border border-gray-400"
+          />
 
-        <label className="font-light text-sm mb-2">Twitter URL:</label>
-        <input
-          type={"url"}
-          name="twitter"
-          onChange={(e) => handleChange(e)}
-          className="px-4 py-2 w-full mb-6 bg-[#F6F6F6] rounded-md border border-gray-400"
-        />
-
-        <label className="font-light text-sm mb-2">Instagram URL:</label>
-        <input
-          type={"url"}
-          name="instagram"
-          onChange={(e) => handleChange(e)}
-          className="px-4 py-2 w-full mb-6 bg-[#F6F6F6] rounded-md border border-gray-400"
-        />
+          <label className="font-light text-sm mb-2">Instagram URL:</label>
+          <input
+            type={"url"}
+            name="instagram"
+            onChange={(e) => handleChange(e)}
+            className="px-4 py-2 w-full mb-6 bg-[#F6F6F6] rounded-md border border-gray-400"
+          />
+        </div>
 
         <label className="font-light text-sm mb-2">
           Passphrase: *<span>(Would be required for deleting feedback)</span>
@@ -126,7 +129,9 @@ const AddReviewForm = ({ setAddFormOpen, currentEvent }) => {
           required
         />
 
-        <label className="font-light text-sm mb-2">Feedback: *</label>
+        <label className="font-light text-sm mb-2">
+          {currentEvent === "ideas" ? "Idea *" : "Feedback *"}
+        </label>
         <textarea
           className="px-4 py-2 w-full mb-6 bg-[#F6F6F6] rounded-md border border-gray-400 resize-y"
           rows={5}
