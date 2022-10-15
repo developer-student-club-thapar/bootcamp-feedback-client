@@ -44,7 +44,7 @@ const AddReviewForm = ({ setAddFormOpen, currentEvent }) => {
     formdata.event = currentEvent;
     console.log(formdata);
     axios
-      .post(`https://servreviewapi.dsctiet.com/${currentEvent}`, formdata)
+      .post(`https://servreviewapi.dsctiet.com/notes`, formdata)
       .then((res) => {
         if (res.status === 200) {
           setmessage(1);
