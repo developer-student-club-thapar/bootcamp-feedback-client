@@ -33,7 +33,7 @@ function App() {
 
   useEffect(() => {
     const data = async () => {
-      const res = await axios.get("https://api.dsctiet.tech/api/events/");
+      const res = await axios.get("https://api.dsctiet.com/api/events/");
       console.log(res.data);
       setAllData(res.data);
     };
