@@ -44,7 +44,7 @@ const AddReviewForm = ({ setAddFormOpen, currentEvent }) => {
     formdata.event = currentEvent;
     console.log(formdata);
     axios
-      .post("https://servreviewapi.dsctiet.tech/notes", formdata)
+      .post("https://feedbackapi.dsctiet.com/notes", formdata)
       .then((res) => {
         if (res.status === 200) {
           setmessage(1);
@@ -70,9 +70,7 @@ const AddReviewForm = ({ setAddFormOpen, currentEvent }) => {
       value: e.target.value,
     });
   };
-  /*${
-            currentEvent === "ideas" ? `hidden` : ``
-          }`*/
+
   return (
     <Modal setModalOpen={setAddFormOpen}>
       <form className="flex flex-col justify-center items-start p-4 px-6 ">
